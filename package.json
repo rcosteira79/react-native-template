@@ -7,14 +7,28 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"react": "16.0.0",
-		"react-native": "0.50.3"
+		"assert": "^1.4.1",
+		"eslint-config-rallycoding": "^3.2.0",
+		"eslint-rallycoding": "^1.2.0",
+		"fetchival": "^0.3.3",
+		"lodash": "^4.17.4",
+		"prop-types": "^15.6.0",
+		"react": "16.1.0",
+		"react-native": "0.50.3",
+		"react-native-extended-stylesheet": "^0.8.0",
+		"react-navigation": "^1.0.0-beta.19",
+		"react-redux": "^5.0.6",
+		"redux": "^3.7.2",
+		"redux-persist": "4.8.2",
+		"redux-persist-transform-filter": "0.0.16",
+		"redux-thunk": "^2.2.0",
+		"remote-redux-devtools": "^0.5.12"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
 		"jest": "21.2.1",
-		"react-test-renderer": "16.0.0"
+		"react-test-renderer": "16.1.0"
 	},
 	"jest": {
 		"preset": "react-native"
