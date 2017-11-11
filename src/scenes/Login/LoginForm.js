@@ -56,10 +56,10 @@ class LoginForm extends Component {
 			});
 	}
 
-	setInputReference = (input) => { this.passwordInput = input; };
-	handleEmailChange = (email) => this.setState({ email });
-	handlePasswordChange = (password) => this.setState({ password });
-	focusPassword = () => this.passwordInput.focus();
+	setPasswordReference = input => { this.passwordInput = input; };
+	handleEmailChange = email => this.setState({ email });
+	handlePasswordChange = password => this.setState({ password });
+	focusPassword = () => { this.passwordInput.focus(); };
 
 	render() {
 		return (
@@ -84,33 +84,25 @@ class LoginForm extends Component {
 
 					<View style={styles.inputContainer}>
 						<FloatingLabelInput
+							autoCapitalize="none"
 							label="Password"
 							secureTextEntry
-							returnKeyType="go"
+							returnKeyType="done"
 							value={this.state.password}
-							ref={this.setInputReference}
+							ref={this.setPasswordReference}
 							onChangeText={this.handlePasswordChange}
-							onSubmitEditing={this.focusPassword}
+							onSubmitEditing={dismissKeyboard}
 						/>
 					</View>
 
-					{this.state.isLoading ? (
-						<View style={styles.spinnerStyle}>
-							<ActivityIndicator
-								size={'large'}
-								color={EStyleSheet.value('$colorPrimary')}
-							/>
-						</View>
-					) : (
-							<TouchableOpacity
-								onPress={() => this.onPressLogin()}
-								style={styles.loginButtonContainer}
-							>
-								<Text style={styles.loginButtonText}>
-									LOGIN
-								</Text>
-							</TouchableOpacity>
-						)}
+					<TouchableOpacity
+						onPress={() => this.onPressLogin}
+						style={styles.loginButtonContainer}
+					>
+						<Text style={styles.loginButtonText}>
+							LOGIN
+						</Text>
+					</TouchableOpacity>
 
 					<TouchableOpacity style={styles.registerButtonContainer}>
 						<Text style={styles.registerButtonText}>

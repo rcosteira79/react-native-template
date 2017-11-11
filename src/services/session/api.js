@@ -5,6 +5,5 @@ const endPoints = {
 	authenticate: 'authenticate'
 };
 
-
 export const login = (email, password) => fetchApi(endPoints.authenticate,
 	{ email, password }, 'post', {});
