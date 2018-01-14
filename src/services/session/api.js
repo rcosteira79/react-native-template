@@ -1,9 +1,18 @@
-import { fetchApi } from '../api';
-// import apiConfig from '../api/config';
+import { requestApi } from '../api';
 
-const endPoints = {
-	authenticate: 'authenticate'
+export const endpoints = {
+  authenticate: 'auth',
+  me: 'me'
 };
 
-export const login = (email, password) => fetchApi(endPoints.authenticate,
-	{ email, password }, 'post', {});
+export const authenticate = (email, password) =>
+  requestApi(
+    endpoints.authenticate,
+    {
+      email,
+      password
+    },
+    'post'
+  );
+
+export const getUser = () => requestApi(endpoints.me);

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component Is rendered correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderBottomWidth": 0,
+        "borderColor": "white",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "elevation": 2,
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
+        "padding": 5,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.24,
+        "shadowRadius": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;

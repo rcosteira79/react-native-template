@@ -1,6 +1,15 @@
-import * as actionTypes from './actionTypes';
+import { UPDATE_TOKEN, UPDATE_USER } from './actionTypes';
 
-export const update = session => ({
-	type: actionTypes.UPDATE,
-	session,
-});
+export const updateToken = token => {
+  return {
+    type: UPDATE_TOKEN,
+    token
+  };
+};
+
+export const updateUser = user => {
+  return {
+    type: UPDATE_USER,
+    user
+  };
+};

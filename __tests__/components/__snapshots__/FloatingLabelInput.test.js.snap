@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingLabelInput component Is rendered correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "paddingTop": 18,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": undefined,
+        "fontFamily": "Montserrat-Light",
+        "fontSize": 10,
+        "height": 40,
+        "left": 0,
+        "position": "absolute",
+        "top": 12,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    style={
+      Array [
+        Object {
+          "borderBottomWidth": 1,
+          "color": "#444444",
+          "fontFamily": "Montserrat-Light",
+          "fontSize": 14,
+          "height": 40,
+        },
+        Object {
+          "borderBottomColor": undefined,
+        },
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

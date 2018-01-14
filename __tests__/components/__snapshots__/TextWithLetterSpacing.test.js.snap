@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextWithLetterSpacing component Is rendered correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingRight": 2.4,
+        },
+      ]
+    }
+  >
+    T
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingRight": 2.4,
+        },
+      ]
+    }
+  >
+    e
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingRight": 2.4,
+        },
+      ]
+    }
+  >
+    x
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingRight": 0,
+        },
+      ]
+    }
+  >
+    t
+  </Text>
+</View>
+`;

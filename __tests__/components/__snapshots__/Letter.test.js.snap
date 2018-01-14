@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Letter component Is rendered correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      undefined,
+      Object {
+        "paddingRight": 0,
+      },
+    ]
+  }
+>
+  T
+</Text>
+`;

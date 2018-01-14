@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login tests Renders the LoginScreen 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#55C5CE",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Card
+    style={
+      Object {
+        "marginBottom": 87,
+        "marginLeft": 10,
+        "marginRight": 10,
+        "marginTop": 88,
+      }
+    }
+  >
+    <Connect(LoginForm) />
+  </Card>
+</View>
+`;

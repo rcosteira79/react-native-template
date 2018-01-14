@@ -1,10 +1,12 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
-    $colorPrimaryDark: '##616161',
-    $colorPrimary: '#9E9E9E',
-    $colorPrimaryLight: '#F5F5F5',
-    $colorAccent: '#03A9F4',
-    $colorText: '#212121',
-    $colorWhite: '#ffffff',
+  $colorPrimarySuperDark: '#118898',
+  $colorPrimaryDark: '#16ADC1',
+  $colorPrimaryDarkDisabled: '#16ADC164',
+  $colorPrimary: '#55C5CE',
+  $colorSecondary: '#cddc39',
+  $colorSecondaryDark: '#adb510',
+  $colorGrey: '#444444',
+  $colorError: '#f54B5E',
 });

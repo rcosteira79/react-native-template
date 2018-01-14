@@ -1,11 +1,48 @@
-import Splash from '../scenes/Splash/Splash';
-import Login from '../scenes/Login/Login';
-import Main from '../scenes/Main/Main';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import Splash from '../scenes/Splash';
+import Login from '../scenes/Login';
+import ActivityFeed from '../scenes/Main/ActivityFeed';
+import Settings from '../scenes/Main/Settings';
+import { NAVIGATION_SPLASH } from './actionTypes';
 
-const Routes = {
-	Splash: { screen: Splash, navigationOptions: () => ({ header: null }) },
-	Login: { screen: Login, navigationOptions: () => ({ header: null }) },
-	Main: { screen: Main }
-};
+const MainNavigator = TabNavigator({
+  ActivityFeed: {
+    screen: ActivityFeed,
+    navigationOptions: () => ({
+      headerTitle: 'Activity feed'
+    })
+  },
+  Settings: {
+    screen: Settings,
+    navigationOptions: () => ({
+      headerTitle: 'Settings'
+    })
+  }
+});
 
-export default Routes;
+const AppNavigator = StackNavigator(
+  {
+    Splash: {
+      screen: Splash,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+
+    Login: {
+      screen: Login,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+
+    Main: {
+      screen: MainNavigator
+    }
+  },
+  {
+    initialRouteName: NAVIGATION_SPLASH
+  }
+);
+
+export default AppNavigator;

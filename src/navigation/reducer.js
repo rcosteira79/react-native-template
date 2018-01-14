@@ -1,29 +1,13 @@
-import { NavigationActions } from 'react-navigation';
-import { AppNavigator } from '../navigation';
+import AppNavigator from './routes';
 
-export const initialState = AppNavigator.router.getStateForAction(
-	AppNavigator.router.getActionForPathAndParams('Splash')
+import { NAVIGATION_SPLASH } from './actionTypes';
+
+const initialState = AppNavigator.router.getStateForAction(
+  AppNavigator.router.getActionForPathAndParams(NAVIGATION_SPLASH)
 );
 
 export const navigationReducer = (state = initialState, action) => {
-	let newState;
-	switch (action.type) {
-		case 'Login':
-			newState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Login' }),
-				state
-			);
-			break;
-		case 'Main':
-			newState = AppNavigator.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Main' }),
-				state
-			);
-			break;
-		default:
-			newState = AppNavigator.router.getStateForAction(action, state);
-			break;
-	}
+  const newState = AppNavigator.router.getStateForAction(action, state);
 
-	return newState || state;
+  return newState || state;
 };

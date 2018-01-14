@@ -1,44 +1,33 @@
-import { AsyncStorage } from 'react-native';
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import devTools from 'remote-redux-devtools';
-import { persistStore, autoRehydrate } from 'redux-persist';
-import createFilter from 'redux-persist-transform-filter';
+import { localeReducer } from 'react-localize-redux';
+import { persistStore, persistCombineReducers } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { dataReducer } from './data/reducer';
-import { servicesReducer } from './services/reducer';
 import { navigationReducer } from './navigation/reducer';
-import * as persistActionCreators from './services/persist/actions';
+import { sessionReducer } from './services/session/reducer';
+import { loginReducer } from './scenes/Login/reducer';
+import { settingsReducer } from './scenes/Main/Settings/reducer';
+import { GLOBAL } from './services/helpers/index';
 
-const appReducer = combineReducers({
-	navigation: navigationReducer,
-	services: servicesReducer,
-	data: dataReducer,
+const config = {
+  key: 'root',
+  storage,
+  blacklist: ['navigation', 'locale']
+};
+
+const reducers = persistCombineReducers(config, {
+  navigation: navigationReducer,
+  session: sessionReducer,
+  locale: localeReducer,
+  login: loginReducer,
+  settings: settingsReducer
 });
 
-const enhancer = compose(
-	applyMiddleware(
-		thunk,
-	),
-	devTools()
-);
+const enhancer = compose(applyMiddleware(thunk), devTools({ realtime: GLOBAL.DEV }));
 
-const store = createStore(
-	appReducer,
-	enhancer,
-	autoRehydrate(),
-);
+export const LOGOUT = 'LOGOUT';
 
-const saveAndLoadSessionFilter = createFilter(
-	'services',
-	['session'],
-	['session']
-);
-
-export const persist = persistStore(store, {
-	storage: AsyncStorage,
-	blacklist: ['data', 'navigation'],
-	transforms: [saveAndLoadSessionFilter],
-}, () => store.dispatch(persistActionCreators.update({ isHydrated: true })));
-
-export default store;
+export const store = createStore(reducers, enhancer);
+export const persistor = persistStore(store);

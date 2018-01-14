@@ -1,173 +1,189 @@
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
-import React, { Component } from 'react';
+import React from 'react';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import { connect } from 'react-redux';
+import { getTranslate } from 'react-localize-redux';
+import { hook, wrap } from 'cavy';
 
 import {
-	View,
-	TouchableOpacity,
-	TouchableWithoutFeedback,
-	Text,
-	StatusBar,
-	ActivityIndicator,
+  View,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Text,
+  Image,
+  Dimensions
 } from 'react-native';
 
-import EStyleSheet from 'react-native-extended-stylesheet';
+import { FloatingLabelInput, Button } from '../../components';
+import { emailChanged, passwordChanged, loginUser } from './actions';
+import Locales from '../../resources/locales';
 
-import * as session from '../../services/session';
-import * as api from '../../services/api';
+import { GLOBAL } from '../../services/helpers';
+import TestKeys from '../../../specs/itKeys';
 
-import { FloatingLabelInput } from '../../components';
+const logo = require('../../resources/images/logo.png');
 
-class LoginForm extends Component {
-	constructor(props) {
-		super(props);
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
-		this.initialState = {
-			isLoading: false,
-			error: null,
-			email: '',
-			password: '',
-		};
+class LoginForm extends React.Component {
+  onLoginButtonPress() {
+    const { email, password } = this.props;
 
-		this.state = this.initialState;
-	}
+    dismissKeyboard();
+    this.props.loginUser(email, password);
+  }
 
-	onPressLogin() {
-		this.setState({
-			isLoading: true,
-			error: '',
-		});
+  onEmailChange = email => this.props.emailChanged(email);
+  onPasswordChange = password => this.props.passwordChanged(password);
 
-		dismissKeyboard();
-		session.login(this.state.email, this.state.password)
-			.then(() => {
-				console.log('authenticated');
-			})
-			.catch((exception) => {
-				// Displays only the first error message
-				const error = api.exceptionExtractError(exception);
-				this.setState({
-					isLoading: false,
-					...(error ? { error } : {}),
-				});
+  setInputReference = input => {
+    this.passwordInput = input;
+  };
 
-				if (!error) {
-					throw exception;
-				}
-			});
-	}
+  getErrorMessage() {
+    return this.props.error !== '' ? this.props.translate(this.props.error) : ' ';
+  }
 
-	setPasswordReference = input => { this.passwordInput = input; };
-	handleEmailChange = email => this.setState({ email });
-	handlePasswordChange = password => this.setState({ password });
-	focusPassword = () => { this.passwordInput.focus(); };
+  focusPassword = () => {
+    this.passwordInput.focus();
+  };
 
-	render() {
-		return (
-			<TouchableWithoutFeedback
-				onPress={dismissKeyboard}
-			>
-				<View style={styles.container}>
-					<StatusBar hidden />
+  testRef = identifier => {
+    return GLOBAL.DEV ? this.props.generateTestHook(identifier) : null;
+  };
 
-					<View style={styles.inputContainer}>
-						<FloatingLabelInput
-							autoCapitalize="none"
-							autoCorrect={false}
-							keyboardType="email-address"
-							returnKeyType="next"
-							label="Email"
-							value={this.state.email}
-							onChangeText={this.handleEmailChange}
-							onSubmitEditing={this.focusPassword}
-						/>
-					</View>
+  render() {
+    const ButtonWrapper = wrap(Button, GLOBAL.DEV);
 
-					<View style={styles.inputContainer}>
-						<FloatingLabelInput
-							autoCapitalize="none"
-							label="Password"
-							secureTextEntry
-							returnKeyType="done"
-							value={this.state.password}
-							ref={this.setPasswordReference}
-							onChangeText={this.handlePasswordChange}
-							onSubmitEditing={dismissKeyboard}
-						/>
-					</View>
+    return (
+      <TouchableWithoutFeedback onPress={dismissKeyboard}>
+        <View style={styles.container}>
+          <View style={styles.imageContainer}>
+            <Image style={styles.logoStyle} source={logo} resizeMode={'contain'} />
+          </View>
 
-					<TouchableOpacity
-						onPress={() => this.onPressLogin}
-						style={styles.loginButtonContainer}
-					>
-						<Text style={styles.loginButtonText}>
-							LOGIN
-						</Text>
-					</TouchableOpacity>
+          <FloatingLabelInput
+            style={styles.emailContainer}
+            ref={this.testRef(TestKeys.login.emailInput)}
+            unfocusedColor={EStyleSheet.value('$colorGrey')}
+            focusedColor={EStyleSheet.value('$colorPrimary')}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+            returnKeyType="next"
+            label={this.props.translate(`${Locales.login.email}`)}
+            value={this.props.email}
+            onChangeText={this.onEmailChange.bind(this)}
+            blurOnSubmit={false}
+            onSubmitEditing={this.focusPassword.bind(this)}
+          />
 
-					<TouchableOpacity style={styles.registerButtonContainer}>
-						<Text style={styles.registerButtonText}>
-							Register
-						</Text>
-					</TouchableOpacity>
-				</View>
-			</TouchableWithoutFeedback>
-		);
-	}
+          <View style={styles.passwordContainer}>
+            <FloatingLabelInput
+              ref={this.testRef(TestKeys.login.passwordInput)}
+              unfocusedColor={EStyleSheet.value('$colorGrey')}
+              focusedColor={EStyleSheet.value('$colorPrimary')}
+              label={this.props.translate(`${Locales.login.password}`)}
+              secureTextEntry
+              returnKeyType="done"
+              value={this.props.password}
+              withRef
+              refField={this.setInputReference.bind(this)}
+              onChangeText={this.onPasswordChange.bind(this)}
+              blurOnSubmit
+              onSubmitEditing={dismissKeyboard}
+            />
+
+            <Text ref={this.testRef(TestKeys.login.errorMessage)} style={styles.errorStyle}>
+              {this.getErrorMessage()}
+            </Text>
+          </View>
+          <ButtonWrapper
+            ref={this.testRef(TestKeys.login.loginButton)}
+            enabled={this.props.validEmail && this.props.validPassword}
+            style={styles.loginButtonStyle}
+            onPress={this.onLoginButtonPress.bind(this)}
+          >
+            {this.props.translate(`${Locales.login.login}`)}
+          </ButtonWrapper>
+
+          <TouchableOpacity style={styles.recoverPasswordButtonContainer}>
+            <Text style={styles.recoverPasswordButtonText}>
+              {this.props.translate(`${Locales.login.recover_password}`)}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  }
 }
 
 const styles = EStyleSheet.create({
-	container: {
-		paddingVertical: 70,
-		paddingHorizontal: 70,
-	},
-
-	inputContainer: {
-		flex: 1,
-		marginBottom: 60,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	iconContainer: {
-		flex: 1,
-		marginRight: 20,
-	},
-	icon: {
-		height: 40,
-		width: 40,
-		resizeMode: 'contain',
-	},
-	input: {
-		flex: 4,
-		height: 40,
-		color: '$colorPrimary',
-	},
-	spinnerStyle: {
-		marginTop: 40,
-		justifyContent: 'center',
-		alignItems: 'center',
-		paddingVertical: 15,
-	},
-	loginButtonContainer: {
-		marginTop: 40,
-		backgroundColor: '$colorAccent',
-		paddingVertical: 15,
-	},
-	loginButtonText: {
-		fontSize: 18,
-		textAlign: 'center',
-		color: 'white',
-		fontWeight: 'bold',
-	},
-	registerButtonContainer: {
-		paddingVertical: 15,
-	},
-	registerButtonText: {
-		fontSize: 18,
-		textAlign: 'center',
-		color: '$colorText',
-		fontWeight: 'bold',
-	},
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  imageContainer: {
+    minHeight: 50,
+    maxHeight: 500,
+    width: SCREEN_WIDTH * 0.5,
+    marginTop: 40,
+    marginBottom: 50
+  },
+  logoStyle: {
+    flex: 1,
+    height: undefined,
+    width: undefined
+  },
+  emailContainer: {
+    marginBottom: 15
+  },
+  passwordContainer: {
+    marginBottom: 40,
+    alignSelf: 'stretch'
+  },
+  errorStyle: {
+    fontSize: 11,
+    marginTop: 2,
+    alignSelf: 'flex-start',
+    fontFamily: 'Montserrat-Regular',
+    color: '$colorError'
+  },
+  loginButtonStyle: {
+    marginBottom: 30
+  },
+  recoverPasswordButtonContainer: {
+    marginBottom: 50
+  },
+  recoverPasswordButtonText: {
+    fontSize: 11,
+    fontFamily: 'Montserrat-Regular',
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    color: '$colorPrimaryDark'
+  }
 });
 
-export default LoginForm;
+const mapStateToProps = ({ login, locale }) => {
+  const { email, password, validEmail, validPassword, error, isLoading } = login;
+
+  const translate = getTranslate(locale);
+
+  return {
+    translate,
+    email,
+    password,
+    validEmail,
+    validPassword,
+    error,
+    isLoading
+  };
+};
+
+export default connect(mapStateToProps, {
+  emailChanged,
+  passwordChanged,
+  loginUser
+})(hook(LoginForm, GLOBAL.DEV));

@@ -1,64 +1,34 @@
-import store from '../../store';
-
+import _ from 'lodash';
+import { store } from '../../store';
 import * as api from './api';
-import * as selectors from './selectors';
 import * as actionCreators from './actions';
-import { initialState } from './reducer';
+import * as sessionSelectors from './selectors';
 
-const SESSION_TIMEOUT_THRESHOLD = 300; // Will refresh the access token 5 minutes before it expires
+export const authenticate = (email, password) => {
+  if (!_.isEmpty(sessionSelectors.get().token)) {
+    return getUser();
+  }
 
-let sessionTimeout = null;
-
-const setSessionTimeout = (duration) => {
-	clearTimeout(sessionTimeout);
-	sessionTimeout = setTimeout(
-		refreshToken,
-		(duration - SESSION_TIMEOUT_THRESHOLD) * 1000
-	);
+  return api
+    .authenticate(email, password)
+    .then(onAuthenticationSuccess)
+    .catch(onRequestFail);
 };
 
-const clearSession = () => {
-	clearTimeout(sessionTimeout);
-	store.dispatch(actionCreators.update(initialState));
+export const getUser = () => {
+  return api
+    .getUser()
+    .then(response => {
+      store.dispatch(actionCreators.updateUser(response.data));
+    })
+    .catch(onRequestFail);
 };
 
-const onRequestSuccess = (response) => {
-	const tokens = response.tokens.reduce((prev, item) => ({
-		...prev,
-		[item.type]: item,
-	}), {});
-	store.dispatch(actionCreators.update({ tokens, user: response.user }));
-	setSessionTimeout(tokens.access.expiresIn);
+const onAuthenticationSuccess = response => {
+  store.dispatch(actionCreators.updateToken(response.data.token));
+  getUser();
 };
 
-const onRequestFailed = (exception) => {
-	clearSession();
-	throw exception;
+const onRequestFail = error => {
+  throw error;
 };
-
-export const refreshToken = () => {
-	const session = selectors.get();
-
-	if (!session.tokens.refresh.value || !session.user.id) {
-		return Promise.reject();
-	}
-
-	return api.refresh(session.tokens.refresh, session.user)
-	.then(onRequestSuccess)
-	.catch(onRequestFailed);
-};
-
-export const login = (email, password) =>
-	api.login(email, password)
-	.then(onRequestSuccess)
-	.catch(onRequestFailed);
-
-	export const revoke = () => {
-		const session = selectors.get();
-		return api.revoke(Object.keys(session.tokens).map(tokenKey => ({
-			type: session.tokens[tokenKey].type,
-			value: session.tokens[tokenKey].value,
-		})))
-		.then(clearSession())
-		.catch(() => {});
-	};

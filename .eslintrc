@@ -1,6 +1,10 @@
 {
   "extends": "rallycoding",
   "rules": {
-    "arrow-body-style": 0
-    }
+    "arrow-body-style": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*/**"]}]
+    },
+  "env": {
+    "jest": true
+  }
 }

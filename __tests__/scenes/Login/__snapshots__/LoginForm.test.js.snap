@@ -1,0 +1,773 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form tests Displays error on invalid login credentials 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value="address@"
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value=""
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      />
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;
+
+exports[`Login Form tests Displays invalid email address 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value="address@"
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value=""
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;
+
+exports[`Login Form tests Displays invalid password 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value="address@"
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value=""
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;
+
+exports[`Login Form tests Displays the email address 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value="address@email.com"
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value=""
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;
+
+exports[`Login Form tests Displays the password 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value="address@"
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value="password"
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;
+
+exports[`Login Form tests renders the Login form 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginBottom": 50,
+          "marginTop": 40,
+          "maxHeight": 500,
+          "minHeight": 50,
+          "width": 375,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      />
+    </View>
+    <FloatingLabelInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      blurOnSubmit={false}
+      focusedColor="#55C5CE"
+      keyboardType="email-address"
+      label=""
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      returnKeyType="next"
+      style={
+        Object {
+          "marginBottom": 15,
+        }
+      }
+      unfocusedColor="#444444"
+      value=""
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <FloatingLabelInput
+        blurOnSubmit={true}
+        focusedColor="#55C5CE"
+        label=""
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        refField={[Function]}
+        returnKeyType="done"
+        secureTextEntry={true}
+        unfocusedColor="#444444"
+        value=""
+        withRef={true}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "color": "#f54B5E",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "marginTop": 2,
+          }
+        }
+      >
+         
+      </Text>
+    </View>
+    <Button
+      enabled={false}
+      onPress={[Function]}
+      style={
+        Object {
+          "marginBottom": 30,
+        }
+      }
+    />
+    <TouchableOpacity
+      activeOpacity={0.2}
+      style={
+        Object {
+          "marginBottom": 50,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#16ADC1",
+            "fontFamily": "Montserrat-Regular",
+            "fontSize": 11,
+            "textAlign": "center",
+            "textDecorationLine": "underline",
+          }
+        }
+      />
+    </TouchableOpacity>
+  </View>
+</TouchableWithoutFeedback>
+`;

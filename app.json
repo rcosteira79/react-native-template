@@ -1,4 +1,15 @@
 {
-  "name": "ReactNativeTemplate",
-  "displayName": "ReactNativeTemplate"
+  "expo": {
+    "name": "Template",
+    "icon": "./src/resources/images/launcher.png",
+    "version": "1.0.0",
+    "slug": "template",
+    "sdkVersion": "24.0.0",
+    "ios": {
+      "bundleIdentifier": "com.rcosteira.template"
+    },
+    "android": {
+      "package": "com.rcosteira.template"
+    }
+  }
 }

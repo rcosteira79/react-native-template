@@ -1,90 +1,84 @@
 import React from 'react';
-import {
-	View,
-	TextInput,
-	Animated
-} from 'react-native';
+import { View, TextInput, Animated } from 'react-native';
+
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-const colorAccent = EStyleSheet.value('$colorAccent');
-const colorText = EStyleSheet.value('$colorText');
-
 class FloatingLabelInput extends React.Component {
-	state = {
-		isFocused: false,
-	};
+  state = {
+    isFocused: false
+  };
 
-	componentWillMount() {
-		this.animatedIsFocused = new Animated.Value(this.props.value === '' ? 0 : 1);
-	}
+  componentWillMount() {
+    this.animatedIsFocused = new Animated.Value(this.props.value === '' ? 0 : 1);
+  }
 
-	componentDidUpdate() {
-		Animated.timing(this.animatedIsFocused, {
-			toValue: (this.state.isFocused || this.props.value !== '') ? 1 : 0,
-			duration: 200,
-		}).start();
-	}
+  componentDidUpdate() {
+    Animated.timing(this.animatedIsFocused, {
+      toValue: this.state.isFocused || this.props.value !== '' ? 1 : 0,
+      duration: 200
+    }).start();
+  }
 
-	setReference = (input) => { this.input = input; };
-	handleFocus = () => this.setState({ isFocused: true });
-	handleBlur = () => this.setState({ isFocused: false });
-	focus = () => { this.input.focus(); };
+  handleFocus = () => this.setState({ isFocused: true });
+  handleBlur = () => this.setState({ isFocused: false });
 
-	handleAnimation(outputRange) {
-		return this.animatedIsFocused.interpolate({
-			inputRange: [0, 1],
-			outputRange
-		});
-	}
+  handleAnimation(outputRange) {
+    return this.animatedIsFocused.interpolate({
+      inputRange: [0, 1],
+      outputRange
+    });
+  }
 
-	render() {
-		const { label, ...props } = this.props;
-		const { viewStyle, labelStyle, textStyle } = styles;
-		const labelStyleAnimations = {
-			top: this.handleAnimation([36, 8]),
-			fontSize: this.handleAnimation([14, 12]),
-			color: this.handleAnimation([colorText, colorAccent])
-		};
+  render() {
+    const { label, unfocusedColor, focusedColor, refField, style, ...props } = this.props;
+    const { viewStyle, labelStyle, textStyle } = styles;
+    const labelStyleAnimations = {
+      top: this.handleAnimation([35, 12]),
+      fontSize: this.handleAnimation([14, 10]),
+      color: this.handleAnimation([unfocusedColor, focusedColor])
+    };
 
-		const textStyleAnimations = {
-			// Apparently, this can't be animated like the rest?
-			borderBottomColor: (this.state.isFocused || this.props.value !== '') ? colorAccent : colorText
-		};
+    const textStyleAnimations = {
+      // Apparently, this can't be animated like the rest?
+      borderBottomColor:
+        this.state.isFocused || this.props.value !== '' ? focusedColor : unfocusedColor
+    };
 
-
-		return (
-			<View style={viewStyle}>
-				<Animated.Text style={[labelStyle, labelStyleAnimations]}>
-					{label}
-				</Animated.Text>
-				<TextInput
-					{...props}
-					ref={this.setReference}
-					style={[textStyle, textStyleAnimations]}
-					underlineColorAndroid={'transparent'}
-					onFocus={this.handleFocus}
-					onBlur={this.handleBlur}
-					blurOnSubmit={false}
-				/>
-			</View>
-		);
-	}
+    return (
+      <View style={[viewStyle, style]}>
+        <Animated.Text style={[labelStyle, labelStyleAnimations]}>{label}</Animated.Text>
+        <TextInput
+          {...props}
+          ref={refField}
+          style={[textStyle, textStyleAnimations]}
+          underlineColorAndroid={'transparent'}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
+      </View>
+    );
+  }
 }
 
 const styles = EStyleSheet.create({
-	viewStyle: {
-		paddingTop: 18
-	},
-	labelStyle: {
-		position: 'absolute',
-		left: 0,
-	},
-	textStyle: {
-		height: 40,
-		fontSize: 14,
-		color: colorText,
-		borderBottomWidth: 1
-	}
+  viewStyle: {
+    alignSelf: 'stretch',
+    paddingTop: 18
+  },
+  labelStyle: {
+    position: 'absolute',
+    height: 40,
+    fontSize: 14,
+    fontFamily: 'Montserrat-Light',
+    left: 0
+  },
+  textStyle: {
+    height: 40,
+    fontSize: 14,
+    fontFamily: 'Montserrat-Light',
+    color: '$colorGrey',
+    borderBottomWidth: 1
+  }
 });
 
 export { FloatingLabelInput };

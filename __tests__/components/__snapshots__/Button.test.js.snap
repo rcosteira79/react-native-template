@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component Is rendered disabled 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "backgroundColor": "#16ADC164",
+      "borderRadius": 3,
+      "height": 50,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      T
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      e
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      x
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 0,
+          },
+        ]
+      }
+    >
+      t
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button component Is rendered enabled 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "backgroundColor": "#55C5CE",
+      "borderRadius": 3,
+      "height": 50,
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      T
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      e
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 2.4,
+          },
+        ]
+      }
+    >
+      x
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "Montserrat-Medium",
+            "fontSize": 14,
+            "letterSpacing": 2.4,
+          },
+          Object {
+            "paddingRight": 0,
+          },
+        ]
+      }
+    >
+      t
+    </Text>
+  </View>
+</View>
+`;
