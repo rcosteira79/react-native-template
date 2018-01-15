@@ -7,7 +7,7 @@ export const endpoints = {
 };
 
 export const authenticate = (email, password) => {
-  requestApi(endpoints.authenticate, undefined, 'get', {
+  return requestApi(endpoints.authenticate, undefined, 'get', {
     Authorization: `Basic ${new Buffer(`${email}:${password}`).toString('base64')}`
   });
 };
