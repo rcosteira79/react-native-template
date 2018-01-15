@@ -1,18 +1,14 @@
+import { Buffer } from 'buffer';
 import { requestApi } from '../api';
 
 export const endpoints = {
-  authenticate: 'auth',
-  me: 'me'
+  authenticate: 'authenticate',
+  user: 'user'
 };
 
-export const authenticate = (email, password) =>
-  requestApi(
-    endpoints.authenticate,
-    {
-      email,
-      password
-    },
-    'post'
-  );
-
-export const getUser = () => requestApi(endpoints.me);
+export const authenticate = (email, password) => {
+  requestApi(endpoints.authenticate, undefined, 'get', {
+    Authorization: `Basic ${new Buffer(`${email}:${password}`).toString('base64')}`
+  });
+};
+export const getUser = () => requestApi(endpoints.user);

@@ -1,3 +1,3 @@
 export default {
-  url: 'localhost:3001/'
+  url: 'https://api.github.com/'
 };

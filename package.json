@@ -1,5 +1,5 @@
 {
-  "name": "seninc-mobile",
+  "name": "react-native-template",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "buffer": "^5.0.8",
     "eslint-config-rallycoding": "^3.2.0",
     "eslint-rallycoding": "^1.2.0",
     "expo": "^24.0.0",

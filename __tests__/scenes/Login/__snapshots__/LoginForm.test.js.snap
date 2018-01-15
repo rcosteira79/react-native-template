@@ -17,10 +17,9 @@ exports[`Login Form tests Displays error on invalid login credentials 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }
@@ -144,10 +143,9 @@ exports[`Login Form tests Displays invalid email address 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }
@@ -273,10 +271,9 @@ exports[`Login Form tests Displays invalid password 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }
@@ -402,10 +399,9 @@ exports[`Login Form tests Displays the email address 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }
@@ -531,10 +527,9 @@ exports[`Login Form tests Displays the password 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }
@@ -660,10 +655,9 @@ exports[`Login Form tests renders the Login form 1`] = `
     <View
       style={
         Object {
-          "marginBottom": 50,
           "marginTop": 40,
           "maxHeight": 500,
-          "minHeight": 50,
+          "minHeight": 100,
           "width": 375,
         }
       }

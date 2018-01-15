@@ -126,11 +126,10 @@ const styles = EStyleSheet.create({
     justifyContent: 'center'
   },
   imageContainer: {
-    minHeight: 50,
+    minHeight: 100,
     maxHeight: 500,
     width: SCREEN_WIDTH * 0.5,
-    marginTop: 40,
-    marginBottom: 50
+    marginTop: 40
   },
   logoStyle: {
     flex: 1,

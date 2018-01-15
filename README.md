@@ -1,3 +1,19 @@
+React Native project template built with Expo, containing basic screens, reducers and tests.
+ 
+ ## Project Structure (inside src folder):
+ * components: reusable components;
+ * navigation: manages scene navigation;
+ * resources: images, color palette, etc;
+ * scenes: app scenes;
+ * services: "helpers" for state management
+
+ ## Tests
+ * For snapshots, unit tests and integration tests with Jest and Enzyme, check the `__tests__` folder. You can run them by running `npm test`, or `npm run testWithCoverage` to generate a coverage report; 
+ * For e2e and functional testing with Cavy, check the `specs` folder. These tests run automatically when deploying the app to an emulator or device, as long as the `DEV` variable in the `Globals` file is set to `true`. Some tests will fail since there's no real API config.
+ 
+<hr>
+<hr>
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
@@ -218,3 +234,20 @@ There are a few steps you may want to take to troubleshoot these kinds of errors
 If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
 
 If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
+
+ ## License
+ ```
+ Copyright 2017 Ricardo Costeira
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+    http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ ```

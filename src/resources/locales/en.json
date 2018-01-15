@@ -4,7 +4,7 @@
     "password": "Password",
     "login": "LOGIN",
     "recover_password": "Recover password",
-    "error_invalid_email_password": "Please check your email | password.",
+    "error_invalid_email_password": "Invalid email or password.",
     "error_unknown": "An error occurred. Please try again later."
   }
 }

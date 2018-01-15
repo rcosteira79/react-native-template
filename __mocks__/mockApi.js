@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Buffer } from 'buffer';
 import MockAdapter from 'axios-mock-adapter';
 
 import * as sessionApi from '../src/services/session/api';
@@ -7,7 +8,7 @@ const mockApi = new MockAdapter(axios);
 
 export const testDoubles = {
   credentials: {
-    email: 'caregiver@a.com',
+    email: 'correct@credentials.com',
     password: '123456'
   },
   token: 'mockToken',
@@ -17,10 +18,14 @@ export const testDoubles = {
 };
 
 export const setMockApi = () => {
-  mockApi.onPost(sessionApi.endpoints.authenticate).reply(config => {
-    const { email, password } = JSON.parse(config.data);
+  mockApi.onGet(sessionApi.endpoints.authenticate).reply(config => {
+    const basicAuth = config.headers.Authorization;
     const { credentials, token } = testDoubles;
-    if (credentials.email === email && credentials.password === password) {
+    const testBasicAuth = `Basic ${new Buffer(
+      `${credentials.email}:${credentials.password}`
+    ).toString('base64')}`;
+
+    if (basicAuth === testBasicAuth) {
       return [200, { token: `${token}` }];
     }
 
@@ -33,7 +38,7 @@ export const setMockApi = () => {
     throw error;
   });
 
-  mockApi.onGet(sessionApi.endpoints.me).reply(config => {
+  mockApi.onGet(sessionApi.endpoints.user).reply(config => {
     if (config.headers.Authorization === `Bearer ${testDoubles.token}`) {
       return [200, testDoubles.user];
     }

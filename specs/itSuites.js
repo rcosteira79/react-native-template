@@ -67,7 +67,7 @@ export {
   invalidCredentials,
   invalidPassword,
   validCredentials,
-  invalidLogin,
-  validLogin,
-  logout
+  invalidLogin
+  //validLogin, -- commented out for obvious reasons :)
+  //logout
 };
